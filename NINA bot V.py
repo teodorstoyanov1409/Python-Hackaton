@@ -2,9 +2,11 @@ import datetime
 import requests
 import pytz
 import random
+
 def get_local_time():
     tz = pytz.timezone("Europe/Sofia")
     return datetime.datetime.now(tz).strftime("%H:%M:%S")
+
 def get_simulated_weather():
     weather_options = [
         "☀️ Sunny",
@@ -57,6 +59,7 @@ while True:
             print("• Read a book in a cozy spot")
             print("• Take a warm bath with music")
             print("• Do some meditation or yoga")
+            
         elif mood == "creative":
             print("🎨 Creative recommendations:")
             print("• Try drawing or painting")
@@ -85,8 +88,8 @@ while True:
         question_lower = question.lower()
         
         if "time" in question_lower or "clock" in question_lower:
-          current_time = get_local_time()
-          print("⌚ Current time:", current_time)
+            current_time = get_local_time()
+            print("⌚ Current time:", current_time)
             
         elif "date" in question_lower or "day" in question_lower:
             day = get_day_info()
@@ -99,7 +102,7 @@ while True:
             print("(Check a real weather app for accurate information!)")
             
         elif "food" in question_lower or "eat" in question_lower:
-           foods = ["🍕 Pizza", "🍝 Pasta", "🥗 Salad", "🍜 Soup", "🌮 Tacos", "🍣 Sushi"]
+            foods = ["🍕 Pizza", "🍝 Pasta", "🥗 Salad", "🍜 Soup", "🌮 Tacos", "🍣 Sushi"]
             suggestion = random.choice(foods)
             print(f"🍽️ Food suggestion: {suggestion}")
             
@@ -108,7 +111,7 @@ while True:
             suggestion = random.choice(genres)
             print(f"🎬 Movie suggestion: {suggestion}")
             
-        elif "music" in question_lower or "song" in question_lower:
+        elif "book" in question_lower or "song" in question_lower:
             types = ["📖 Fiction", "📚 Non-fiction", "📝 Poetry", "🕵️ Mystery", "🔬 Science", "📜 History"]
             suggestion = random.choice(types)
             print(f"📚 Book suggestion: {suggestion}")
@@ -133,5 +136,3 @@ while True:
         if continue_chat == "no":
             print("👋🎃 Thanks for using NINA! Goodbye!")
             break
-
-        
